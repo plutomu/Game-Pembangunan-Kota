@@ -1,5 +1,5 @@
 {
-  "name": "game pembanguna kota",
+  "name": "game-pembanguna-kota",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,6 +12,12 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "express": "^4.21.2",
     "three": "^0.155.0"
-  }
+  },
+  "description": "## What is this?",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
