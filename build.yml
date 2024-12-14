@@ -1,0 +1,49 @@
+name: Node.js CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout kode dari repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # 2. Setup Node.js environment
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18' # Versi Node.js yang akan digunakan
+
+    # 3. Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # 4. Run tests (opsional, jika ada)
+    - name: Run tests
+      run: npm test
+
+    # 5. Build aplikasi (opsional, jika aplikasi membutuhkan proses build)
+    - name: Build application
+      run: npm run build
+
+    # 6. Upload artifacts (opsional, jika ingin menyimpan hasil build)
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build
+        path: dist/
+
+    # 7. Deploy (opsional)
+    - name: Deploy to Production
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "Deployment step goes here"
