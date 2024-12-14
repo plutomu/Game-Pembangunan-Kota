@@ -2,15 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="public/main.css" />
-    <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
-    <script type="module" src="scripts/game.js"></script>
-    <script type="module" src="scripts/ui.js"></script>
+    <link rel="stylesheet" href="/src/public/main.css" />
+    <link rel="icon" type="image/x-icon" href="/src/public/favicon.ico" />
+    <script type="module" src="/src/scripts/game.js"></script>
+    <script type="module" src="/src/scripts/ui.js"></script>
   </head>
 
   <body>
     <div id="root-window">
-      <!-- Three.js adds a `canvas` element to this element-->
       <div id="render-target"></div>
       <div id="loading" class="text-overlay">
         <div>LOADING...</div>
@@ -23,7 +22,7 @@
           <div class="title-bar-left-items title-bar-items"></div>
           <div class="title-bar-center-items title-bar-items"></div>
           <div class="title-bar-right-items title-bar-items">
-            <img id="population-icon" src="public/icons/person.png" />
+            <img id="population-icon" src="/src/public/icons/person.png" />
             <span id="population-counter">0</span>
           </div>
         </div>
@@ -34,7 +33,7 @@
             data-type="select"
             onclick="ui.onToolSelected(event)"
           >
-            <img class="toolbar-icon" src="public/icons/select-color.png" />
+            <img class="toolbar-icon" src="/src/public/icons/select-color.png" />
           </button>
           <button
             id="button-bulldoze"
@@ -42,7 +41,7 @@
             data-type="bulldoze"
             onclick="ui.onToolSelected(event)"
           >
-            <img class="toolbar-icon" src="public/icons/bulldozer-color.png" />
+            <img class="toolbar-icon" src="/src/public/icons/bulldozer-color.png" />
           </button>
           <button
             id="button-residential"
@@ -50,7 +49,7 @@
             data-type="residential"
             onclick="ui.onToolSelected(event)"
           >
-            <img class="toolbar-icon" src="public/icons/house-color.png" />
+            <img class="toolbar-icon" src="/src/public/icons/house-color.png" />
           </button>
           <button
             id="button-commercial"
@@ -58,7 +57,7 @@
             data-type="commercial"
             onclick="ui.onToolSelected(event)"
           >
-            <img class="toolbar-icon" src="public/icons/store-color.png" />
+            <img class="toolbar-icon" src="/src/public/icons/store-color.png" />
           </button>
           <button
             id="button-industrial"
@@ -66,7 +65,7 @@
             data-type="industrial"
             onclick="ui.onToolSelected(event)"
           >
-            <img class="toolbar-icon" src="public/icons/factory-color.png" />
+            <img class="toolbar-icon" src="/src/public/icons/factory-color.png" />
           </button>
           <button
             id="button-road"
@@ -74,7 +73,7 @@
             data-type="road"
             onclick="ui.onToolSelected(event)"
           >
-            <img class="toolbar-icon" src="public/icons/road-color.png" />
+            <img class="toolbar-icon" src="/src/public/icons/road-color.png" />
           </button>
           <button
             id="button-power-plant"
@@ -82,7 +81,7 @@
             data-type="power-plant"
             onclick="ui.onToolSelected(event)"
           >
-            <img class="toolbar-icon" src="public/icons/power-color.png" />
+            <img class="toolbar-icon" src="/src/public/icons/power-color.png" />
           </button>
           <button
             id="button-power-line"
@@ -90,7 +89,7 @@
             data-type="power-line"
             onclick="ui.onToolSelected(event)"
           >
-            <img class="toolbar-icon" src="public/icons/power-line-color.png" />
+            <img class="toolbar-icon" src="/src/public/icons/power-line-color.png" />
           </button>
           <button
             id="button-pause"
@@ -100,7 +99,7 @@
             <img
               id="pause-button-icon"
               class="toolbar-icon"
-              src="public/icons/pause-color.png"
+              src="/src/public/icons/pause-color.png"
             />
           </button>
         </div>
@@ -112,11 +111,7 @@
     <div id="question-panel">
       <div class="question-content">
         <div class="question-header">
-          <p>
-            Bagaimana kamu merencanakan pembangunan kota yang dapat mengurangi
-            kemacetan dan menghubungkan pemukiman dengan industri? Ayo, gunakan
-            ide kreatifmu!
-          </p>
+          <p>Bagaimana kamu merencanakan pembangunan kota yang dapat mengurangi kemacetan dan menghubungkan pemukiman dengan industri? Ayo, gunakan ide kreatifmu!</p>
         </div>
         <p id="question-text"></p>
       </div>
