@@ -43,7 +43,7 @@ export class City extends THREE.Group {
    */
   vehicleGraph;
 
-  constructor(size, name = 'Semarang') {
+  constructor(size, name = 'My City') {
     super();
 
     this.name = name;
