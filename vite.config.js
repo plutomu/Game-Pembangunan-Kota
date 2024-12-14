@@ -1,6 +1,6 @@
 export default {
-  // Set the base directory for GitHub pages
-  base: '/simcity-threejs-clone',
+  // Set the base directory for GitHub pages or Vercel (set base path)
+  base: '/simcity-threejs-clone/',
 
   // Set the project root directory (relative to the config file)
   root: './src',
@@ -15,7 +15,9 @@ export default {
 
   // Add server configuration to handle SPA routing
   server: {
-    historyApiFallback: true // Redirect all routes to index.html
+    historyApiFallback: {
+      index: '/index.html' // Pastikan semua rute diarahkan ke index.html
+    }
   },
 
   // Configure preview server for local testing
