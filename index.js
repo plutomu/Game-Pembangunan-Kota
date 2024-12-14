@@ -10,7 +10,7 @@ app.get('/home', (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://127.0.0.1:3000/game%20pembanguna%20kota/`);
 });
 
 // Export the Express API
