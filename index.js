@@ -1,7 +1,7 @@
 // index.js
 const express = require('express')
 const app = express()
-const PORT = 4000
+const PORT = 3000
 
 
 app.get('/home', (req, res) => {
@@ -10,7 +10,7 @@ app.get('/home', (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://127.0.0.1:3000/game%20pembanguna%20kota/`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
 
 // Export the Express API
