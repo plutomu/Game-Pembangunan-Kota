@@ -10,6 +10,6 @@ export default {
   
   // Set the build output directory
   build: {
-    outDir: './public'
+    outDir: './dist'
   }
 }
