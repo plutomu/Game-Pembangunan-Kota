@@ -1,7 +1,7 @@
-import { Game } from 'scripts/game.js';
-import { SimObject } from 'scripts/sim/simObject.js';
-import playIconUrl from 'public/icons/play-color.png';
-import pauseIconUrl from 'public/icons/pause-color.png';
+import { Game } from './game';
+import { SimObject } from './sim/simObject';
+import playIconUrl from '/icons/play-color.png';
+import pauseIconUrl from '/icons/pause-color.png';
 
 export class GameUI {
   /**
