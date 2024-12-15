@@ -1,6 +1,6 @@
 export default {
   // Set the base directory for GitHub pages
-  base: '/game pembanguna kota/',
+  base: '/game-pembangunan-kota/',
 
   // Set the project root directory (relative to the config file)
   root: './src',
