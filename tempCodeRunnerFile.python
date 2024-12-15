@@ -1,0 +1,46 @@
+import os
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+# URL halaman yang berisi resources
+url = "https://dgreenheck.github.io/simcity-threejs-clone/"
+
+# Mengirim permintaan GET untuk mendapatkan konten halaman
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Mencari semua tag <a> dan <img> untuk mengambil link file
+resources = []
+
+# Menambahkan semua link di tag <a href>
+for link in soup.find_all('a', href=True):
+    resources.append(urljoin(url, link['href']))
+
+# Menambahkan semua link di tag <img src>
+for img in soup.find_all('img', src=True):
+    resources.append(urljoin(url, img['src']))
+
+# Fungsi untuk mengunduh file
+def download_file(url, folder="downloads"):
+    # Menentukan nama file berdasarkan URL
+    file_name = os.path.join(folder, os.path.basename(url))
+    
+    # Membuat folder untuk menyimpan file jika belum ada
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    
+    # Mengunduh file
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        with open(file_name, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+    print(f"File downloaded: {file_name}")
+
+# Mengunduh setiap file yang ditemukan
+for resource in resources:
+    try:
+        download_file(resource)
+    except Exception as e:
+        print(f"Error downloading {resource}: {e}")
