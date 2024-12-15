@@ -16,6 +16,8 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Tentukan versi Node.js yang sesuai
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
@@ -27,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          path: ./dist
+          path: ./dist  # Pastikan build menghasilkan file di folder ini
 
   deploy:
     name: Deploy
@@ -40,10 +42,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: production-files
-          path: ./dist
+          path: ./dist  # Pastikan folder ini ada setelah di-download
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist  # Pastikan output build berada di sini
