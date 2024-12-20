@@ -1,4 +1,4 @@
-name: Deploy
+name: Build and Deploy
 
 on:
   push:
@@ -11,25 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # Tentukan versi Node.js yang sesuai
-
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm install
 
       - name: Build project
         run: npm run build
 
-      - name: Upload production-ready build files
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          path: ./dist  # Pastikan build menghasilkan file di folder ini
+          path: ./dist
 
   deploy:
     name: Deploy
@@ -38,14 +33,20 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
           name: production-files
-          path: ./dist  # Pastikan folder ini ada setelah di-download
+          path: ./dist
+
+      - name: Debug artifact directory
+        run: ls -la ./dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Pastikan output build berada di sini
+          publish_dir: ./dist
