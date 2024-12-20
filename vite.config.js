@@ -1,15 +1,18 @@
+import { resolve } from 'path';
+
 export default {
-  // Set the base directory for GitHub pages
+  // Set the base directory for GitHub Pages
   base: '/game-pembangunan-kota/',
 
   // Set the project root directory (relative to the config file)
   root: 'src',
 
   // Set the directory to serve static files from (relative to the root)
-  publicDir: 'public', // Hapus 'src/' karena root sudah diatur ke 'src'
+  publicDir: resolve(__dirname, 'src/public'), // Pastikan path absolut untuk kompatibilitas
 
   // Set the build output directory
   build: {
-    outDir: './dist', // Output build di luar folder 'src', yaitu di root proyek
-  }
+    outDir: resolve(__dirname, 'dist'), // Output build di root proyek
+    emptyOutDir: true, // Membersihkan folder dist sebelum build baru
+  },
 };
