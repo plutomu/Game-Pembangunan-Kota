@@ -253,4 +253,75 @@ h1 {
 
 }
 
+/* Tambahkan CSS untuk mobile */
+@media screen and (max-width: 768px) {
+  #ui-toolbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+  }
+
+  .ui-button {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    padding: 8px;
+  }
+
+  .toolbar-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  #title-bar {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  #population-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  #info-panel {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    right: 10px;
+    max-height: 30vh;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #question-panel {
+    font-size: 14px;
+    padding: 10px;
+    max-height: 20vh;
+  }
+}
+
+/* Tambahkan CSS untuk touch events */
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+/* Sembunyikan scrollbar tapi tetap bisa scroll */
+::-webkit-scrollbar {
+    display: none;
+}
+
 
