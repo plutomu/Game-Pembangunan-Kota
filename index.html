@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+    <link rel="icon" type="image/x-icon" href="/game-pembangunan-kota/assets/favicon-841c069f.ico" />
+    
+    
+
+    <script type="module" crossorigin src="/game-pembangunan-kota/assets/index-0ad5ee19.js"></script>
+    <link rel="modulepreload" crossorigin href="/game-pembangunan-kota/assets/vendor-ac5f01af.js">
+    <link rel="stylesheet" href="/game-pembangunan-kota/assets/index-657db997.css">
+  </head>
+
+  <body>
+    <div id="root-window">
+      <!-- Three.js adds a `canvas` element to this element-->
+      <div id="render-target"></div>
+      <div id="loading" class="text-overlay">
+        <div>LOADING...</div>
+      </div>
+      <div id="paused-text" class="text-overlay" style="visibility: hidden">
+        <div>Pause</div>
+      </div>
+      <div id="ui">
+        <div id="title-bar">
+          <div class="title-bar-left-items title-bar-items"></div>
+          <div class="title-bar-center-items title-bar-items">
+          
+
+     
+          </div>
+          <div class="title-bar-right-items title-bar-items">
+            <img id="population-icon" src="/game-pembangunan-kota/icons/person.png" />
+            <span id="population-counter">0</span>
+          </div>
+        </div>
+        <div id="ui-toolbar" class="container">
+          <button
+            id="button-select"
+            class="ui-button selected"
+            data-type="select"
+            onclick="ui.onToolSelected(event)"
+          >
+            <img class="toolbar-icon" src="/game-pembangunan-kota/icons/select-color.png" />
+          </button>
+          <button
+            id="button-bulldoze"
+            class="ui-button"
+            data-type="bulldoze"
+            onclick="ui.onToolSelected(event)"
+          >
+            <img class="toolbar-icon" src="/game-pembangunan-kota/icons/bulldozer-color.png" />
+          </button>
+          <button
+            id="button-residential"
+            class="ui-button"
+            data-type="residential"
+            onclick="ui.onToolSelected(event)"
+          >
+            <img class="toolbar-icon" src="/game-pembangunan-kota/icons/house-color.png" />
+          </button>
+          <button
+            id="button-commercial"
+            class="ui-button"
+            data-type="commercial"
+            onclick="ui.onToolSelected(event)"
+          >
+            <img class="toolbar-icon" src="/game-pembangunan-kota/icons/store-color.png" />
+          </button>
+          <button
+            id="button-industrial"
+            class="ui-button"
+            data-type="industrial"
+            onclick="ui.onToolSelected(event)"
+          >
+            <img class="toolbar-icon" src="/game-pembangunan-kota/icons/factory-color.png" />
+          </button>
+          <button
+            id="button-road"
+            class="ui-button"
+            data-type="road"
+            onclick="ui.onToolSelected(event)"
+          >
+            <img class="toolbar-icon" src="/game-pembangunan-kota/icons/road-color.png" />
+          </button>
+          <button
+            id="button-power-plant"
+            class="ui-button"
+            data-type="power-plant"
+            onclick="ui.onToolSelected(event)"
+          >
+            <img class="toolbar-icon" src="/game-pembangunan-kota/icons/power-color.png" />
+          </button>
+          <button
+            id="button-power-line"
+            class="ui-button"
+            data-type="power-line"
+            onclick="ui.onToolSelected(event)"
+          >
+            <img class="toolbar-icon" src="/game-pembangunan-kota/icons/power-line-color.png" />
+          </button>
+          <button
+            id="button-pause"
+            class="ui-button"
+            onclick="ui.togglePause()"
+          >
+            <img
+              id="pause-button-icon"
+              class="toolbar-icon"
+              src="/game-pembangunan-kota/icons/pause-color.png"
+            />
+          </button>
+        </div>
+        <div id="info-panel" class="container"></div>
+        <div id="instructions"></div>
+        <div id="version"></div>
+      </div>
+    </div>
+    <div id="question-panel">
+      <div class="question-content">
+        <div class="question-header">
+          <p>Bagaimana kamu merencanakan pembangunan kota yang dapat mengurangi kemacetan dan menghubungkan pemukiman dengan industri? Ayo, gunakan ide kreatifmu!</h3>
+        </div>
+        <p id="question-text"></p>
+      </div>
+    </div>
+  </body>
+</html>
