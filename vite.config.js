@@ -10,6 +10,6 @@ export default {
 
   // Set the build output directory
   build: {
-    outDir: './dist', // Output build di luar folder 'src', yaitu di root proyek
+    outDir: 'dist', // Output build di luar folder 'src', yaitu di root proyek
   }
 };
