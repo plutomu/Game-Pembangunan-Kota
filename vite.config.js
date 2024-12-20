@@ -3,7 +3,7 @@ export default {
   base: '/game-pembangunan-kota/',
 
   // Set the project root directory (relative to the config file)
-  root: 'src/index.html',
+  root: 'src',
 
   // Set the directory to serve static files from (relative to the root)
   publicDir: 'src/public',
