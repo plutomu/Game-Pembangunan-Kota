@@ -10,6 +10,21 @@ export default {
 
   // Set the build output directory
   build: {
-    outDir: 'dist', // Output build di luar folder 'src', yaitu di root proyek
-  }
+    outDir: '../dist', // Output build di luar folder 'src', yaitu di root proyek
+    emptyOutDir: true, // Bersihkan folder dist sebelum build baru
+
+    // Tambahan untuk mengatasi peringatan chunk size
+    chunkSizeWarningLimit: 1000, // Batas ukuran chunk dalam KB (default 500 KB)
+
+    rollupOptions: {
+      output: {
+        // Pisahkan dependensi ke dalam file vendor.js
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor'; // Nama file yang dihasilkan: vendor.[hash].js
+          }
+        },
+      },
+    },
+  },
 };
