@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+const path = require('path');
 
 export default {
   // Set the base directory for GitHub Pages
@@ -8,11 +8,11 @@ export default {
   root: 'src',
 
   // Set the directory to serve static files from (relative to the root)
-  publicDir: resolve(__dirname, 'src/public'), // Pastikan path absolut untuk kompatibilitas
+  publicDir: path.resolve(__dirname, 'src/public'), // Gunakan path untuk kompatibilitas
 
   // Set the build output directory
   build: {
-    outDir: resolve(__dirname, 'dist'), // Output build di root proyek
+    outDir: path.resolve(__dirname, 'dist'), // Output build di root proyek
     emptyOutDir: true, // Membersihkan folder dist sebelum build baru
   },
 };
