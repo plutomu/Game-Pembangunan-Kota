@@ -253,19 +253,23 @@ h1 {
 
 }
 
-/* Tambahkan CSS untuk mencegah seleksi teks dan gambar */
-img, span, p, div, button {
-    -webkit-touch-callout: none !important; /* iOS Safari */
-    -webkit-user-select: none !important; /* Safari */
-    -khtml-user-select: none !important; /* Konqueror HTML */
-    -moz-user-select: none !important; /* Firefox */
-    -ms-user-select: none !important; /* Internet Explorer/Edge */
-    user-select: none !important; /* Non-prefixed version */
-    pointer-events: none !important; /* Mencegah drag gambar */
+/* Mencegah seleksi teks dan gambar hanya untuk UI elements */
+#ui *, #title-bar *, #question-panel * {
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
 }
 
-/* Khusus untuk button, kita perlu mengizinkan pointer-events agar bisa diklik */
-button {
+/* Mencegah drag hanya untuk icon UI */
+.toolbar-icon, #population-icon {
+    pointer-events: none !important;
+}
+
+/* Mengizinkan interaksi dengan button dan game canvas */
+button, #render-target {
     pointer-events: auto !important;
 }
 
@@ -274,8 +278,8 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Mencegah context menu saat long-press */
-body {
+/* Mencegah context menu saat long-press hanya untuk UI */
+#ui, #title-bar, #question-panel {
     -webkit-context-menu: none;
     -webkit-touch-callout: none;
 }
