@@ -7,12 +7,14 @@ on:
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Set write permissions
+        run: chmod -R u+w .
 
       - name: Install dependencies
         run: npm install
@@ -33,9 +35,13 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Set write permissions
+        run: chmod -R u+w .
 
       - name: Download artifact
         uses: actions/download-artifact@v3
