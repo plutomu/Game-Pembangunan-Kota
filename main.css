@@ -26,6 +26,9 @@ h1 {
 #render-target {
   position: relative;
   height: 100%;
+  touch-action: auto !important;
+  pointer-events: auto !important;
+  cursor: pointer;
 }
 
 #instructions {
@@ -91,6 +94,9 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  touch-action: manipulation !important;
+  pointer-events: auto !important;
+  cursor: pointer;
 }
 
 .ui-button.selected {
@@ -253,7 +259,7 @@ h1 {
 
 }
 
-/* Mencegah seleksi teks dan gambar hanya untuk UI elements */
+/* UI elements protection */
 #ui *, #title-bar *, #question-panel * {
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
@@ -263,25 +269,40 @@ h1 {
     user-select: none !important;
 }
 
-/* Mencegah drag hanya untuk icon UI */
+/* UI buttons and icons */
 .toolbar-icon, #population-icon {
     pointer-events: none !important;
 }
 
-/* Mengizinkan interaksi dengan button dan game canvas */
-button, #render-target {
-    pointer-events: auto !important;
-}
-
-/* Mencegah highlight saat tap di mobile */
+/* Remove tap highlight */
 * {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Mencegah context menu saat long-press hanya untuk UI */
-#ui, #title-bar, #question-panel {
-    -webkit-context-menu: none;
-    -webkit-touch-callout: none;
+/* Prevent pull-to-refresh but allow touch events */
+body {
+    overscroll-behavior: none;
+    touch-action: pan-x pan-y !important;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    #render-target {
+        touch-action: pan-x pan-y !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .ui-button {
+        min-width: 44px; /* Minimum touch target size */
+        min-height: 44px;
+        padding: 8px;
+    }
+    
+    /* Increase touch targets spacing */
+    #ui-toolbar {
+        gap: 8px;
+        padding: 8px;
+    }
 }
 
 
